@@ -26,8 +26,8 @@ public class MainInsercao {
 //			System.out.println("Erro ao Inserir");
 		
 		// meu
-		PessoaBO pessoaBO= new PessoaBO();
-		Pessoa pessoa = new Pessoa("Mateus", "122.786.899-59");
+		PessoaBO pessoaBO = new PessoaBO();
+		Pessoa pessoa = new Pessoa("Matias","Brandl","12278685558");
 		if(pessoaBO.inserir(pessoa))
 			System.out.println("Deu bom cria");
 		else

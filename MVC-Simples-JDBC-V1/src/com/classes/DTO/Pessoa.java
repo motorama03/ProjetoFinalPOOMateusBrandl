@@ -3,21 +3,44 @@ package com.classes.DTO;
 public class Pessoa {
 	
 	private int codigo;
+	private String nome;
+	private String sobrenome;
+	private String cpf;
+	
+	public Pessoa (){
+		
+	}
+	public Pessoa (String nome, String sobrenome, String cpf) {
+		setNome(nome);
+		setSobrenome(sobrenome);
+		setCpf(cpf);
+	}
+	// Para pesquisa por cpf
+	public Pessoa (String cpf) {
+		setCpf(cpf);
+	}
+	// Para pesquisa por código
+	public Pessoa (int codigo) {
+		setCodigo(codigo);
+	}
+	// para modificação
+	public Pessoa(String nome, String sobrenome, String cpf, int codigo) {
+		setCodigo(codigo);
+		setNome(nome);
+		setSobrenome(sobrenome);
+		setCpf(cpf);
+	}
 	public int getCodigo() {
 		return codigo;
 	}
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
 	}
-	private String nome;
-	private String cpf;
-	
-	public Pessoa (){
-		
+	public String getSobrenome() {
+		return sobrenome;
 	}
-	public Pessoa (String nome, String cpf) {
-		setCpf(cpf);
-		setNome(nome);
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
 	}
 	
 	public String getNome() {
@@ -34,7 +57,7 @@ public class Pessoa {
 	}
 	@Override
 	public String toString() {
-		return "Pessoa [codigo=" + codigo + ", nome=" + nome + ", cpf=" + cpf + "]";
+		return "Pessoa [codigo=" + codigo + ", nome=" + nome + ", sobrenome=" + sobrenome + ", cpf=" + cpf + "]";
 	}
 	
 	
