@@ -1,4 +1,0 @@
-Boa tarde professor, devido alguns problemas nos quais relatei via e-mail, tirei a classe pai "Veiculo" do diagrama
-atribuindo seus atributos diretamente nas classes filhos, fiz está alteração temporaria com intuito de não ser prejudicado
-quanto a atividade de criação da MVC, assim que o problema estiver resolvido faço todo o sistema para o objeto "veiculo"
-tal como feito para o objeto "pessoa". Att Mateus Brandl :D
