@@ -10,9 +10,17 @@ public class VeiculoNovoBO {
         VeiculoNovoDAO veiculoNovoDAO = new VeiculoNovoDAO();
         return veiculoNovoDAO.inserir(veiculoNovo);
     }
-    public boolean alterar(VeiculoNovo veiculoNovo){
+    public boolean alterarPorModelo(VeiculoNovo veiculoNovo){
     	VeiculoNovoDAO veiculoNovoDAO = new VeiculoNovoDAO();
-        return veiculoNovoDAO.alterar(veiculoNovo);
+        return veiculoNovoDAO.alterarPorModelo(veiculoNovo);
+    }
+    public boolean alterarPorId(VeiculoNovo veiculoNovo){
+    	VeiculoNovoDAO veiculoNovoDAO = new VeiculoNovoDAO();
+        return veiculoNovoDAO.alterarId(veiculoNovo);
+    }
+    public boolean vendaVeiculo(VeiculoNovo veiculoNovo){
+    	VeiculoNovoDAO veiculoNovoDAO = new VeiculoNovoDAO();
+        return veiculoNovoDAO.vendeuUmVeiculo(veiculoNovo);
     }
     public boolean excluir(VeiculoNovo veiculoNovo){
     	VeiculoNovoDAO veiculoNovoDAO = new VeiculoNovoDAO();
@@ -22,13 +30,9 @@ public class VeiculoNovoBO {
     	VeiculoNovoDAO veiculoNovoDAO = new VeiculoNovoDAO();
         return veiculoNovoDAO.procurarPorId(veiculoNovo);
     }
-//	    public boolean existe(Pessoa pessoa){
-//	    	PessoaDAO pessoaDAO = new PessoaDAO();
-//	        return pessoaDAO.existe(pessoa);
-//	    }
     public List<VeiculoNovo> pesquisarTodos(){
-    	VeiculoNovoDAO veiculoDAO = new VeiculoNovoDAO();
-        return VeiculoNovoDAO.pesquisarTodos();
+    	VeiculoNovoDAO veiculoNovoDAO = new VeiculoNovoDAO();
+        return veiculoNovoDAO.pesquisarTodos();
 	}
 
 }

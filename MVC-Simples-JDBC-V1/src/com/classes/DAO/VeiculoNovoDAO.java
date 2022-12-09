@@ -46,15 +46,38 @@ public class VeiculoNovoDAO {
         }
     }
     
-    public boolean alterar(VeiculoNovo veiculoNovo) {
+    public boolean alterarPorModelo(VeiculoNovo veiculoNovo) {
     	//System.out.println(pessoa);
     	try {
     		Connection conn = Conexao.conectar();
-    		String sql = "UPDATE " + NOMEDATABELA + " SET  marca = ?, modelo = ? WHERE id = ?;";
+    		String sql = "UPDATE " + NOMEDATABELA + " SET  marca = ?, modelo = ?, valor = ?, quantidade = ? WHERE modelo = ?;";
     		PreparedStatement ps = conn.prepareStatement(sql);
     		ps.setString(1, veiculoNovo.getMarca());
     		ps.setString(2, veiculoNovo.getModelo());
-    		ps.setInt(3, veiculoNovo.getId());
+    		ps.setDouble(3, veiculoNovo.getValor());
+    		ps.setInt(4, veiculoNovo.getQuantidade());
+    		ps.setString(5, veiculoNovo.getModelo());
+    		ps.executeUpdate();
+    		ps.close();
+    		return true;
+    	} catch (Exception e) {
+    		e.printStackTrace();
+            return false;
+    	}	
+    	//return true;
+    }
+    
+    public boolean alterarId(VeiculoNovo veiculoNovo) {
+    	//System.out.println(pessoa);
+    	try {
+    		Connection conn = Conexao.conectar();
+    		String sql = "UPDATE " + NOMEDATABELA + " SET  marca = ?, modelo = ?, valor = ?, quantidade = ? WHERE id = ?;";
+    		PreparedStatement ps = conn.prepareStatement(sql);
+    		ps.setString(1, veiculoNovo.getMarca());
+    		ps.setString(2, veiculoNovo.getModelo());
+    		ps.setDouble(3, veiculoNovo.getValor());
+    		ps.setInt(4, veiculoNovo.getQuantidade());
+    		ps.setInt(5, veiculoNovo.getId());
     		ps.executeUpdate();
     		ps.close();
     		return true;
@@ -116,20 +139,22 @@ public class VeiculoNovoDAO {
                 obj.setId(rs.getInt(1));
                 obj.setMarca(rs.getString(2));
                 obj.setModelo(rs.getString(3));
+                obj.setQuantidade(rs.getInt(4));
+                obj.setValor(rs.getDouble(5));
                 listObj.add(obj);
             }
             return listObj;
         } catch (Exception e) {
-            //System.err.println("Erro: " + e.toString());
-            //e.printStackTrace();
+            System.err.println("Erro: " + e.toString());
+            e.printStackTrace();
             return null;
         }
     }
-    
+
     public boolean vendeuUmVeiculo(VeiculoNovo veiculoNovo) {
     	try {
     		Connection conn = Conexao.conectar();
-    		String sql = "UPDATE " + NOMEDATABELA + " SET quantidade = quantidade - 1 WHERE id = ?;";
+    		String sql = "UPDATE " + NOMEDATABELA + " SET quantidade = (quantidade - 1) WHERE modelo = ?;";
     		PreparedStatement ps = conn.prepareStatement(sql);
     		ps.setString(1, veiculoNovo.getModelo());
     		ps.executeUpdate();

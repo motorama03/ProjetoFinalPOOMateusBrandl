@@ -23,6 +23,13 @@ public class VeiculoNovo extends Veiculo {
 		setQuantidade(quantidade);
 		setId(id);
 	}
+	public VeiculoNovo(String marca, String modelo, double valor, int quantidade, int id) {
+		super.setMarca(marca);
+		super.setModelo(modelo);
+		setValor(valor);
+		setQuantidade(quantidade);
+		setId(id);
+	}
 	public VeiculoNovo(String modelo) {
 		setModelo(modelo);
 	}
@@ -64,9 +71,9 @@ public class VeiculoNovo extends Veiculo {
 		builder.append("VeiculoNovo: id= ");
 		builder.append(id+"\n");
 		builder.append("Valor= ");
-		builder.append(valor+"\n");
+		builder.append(getValor()+"\n");
 		builder.append("Quantidade= ");
-		builder.append(quantidade+"\n");
+		builder.append(getQuantidade()+"\n");
 		builder.append("Marca/Modelo: ");
 		builder.append(super.getMarca()+"/"+super.getModelo()+"\n");
 		builder.append("\n");
