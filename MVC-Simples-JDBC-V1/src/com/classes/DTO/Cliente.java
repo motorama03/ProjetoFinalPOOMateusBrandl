@@ -25,8 +25,20 @@ public class Cliente extends Pessoa {
 		super.setSobrenome(sobreNome);
 		setId(id);
 	}
-	
 	public Cliente(String cpf, String nome, String sobreNome) {
+		super.setCpf(cpf);
+		super.setNome(nome);
+		super.setSobrenome(sobreNome);
+		setId(id);
+	}
+	
+	public Cliente(String nome, String sobreNome, int id) {
+		setValorCompra(valorCompra);
+		super.setNome(nome);
+		super.setSobrenome(sobreNome);
+		setId(id);
+	}
+	public Cliente(String cpf, String nome, String sobreNome, int id) {
 		setValorCompra(valorCompra);
 		super.setCpf(cpf);
 		super.setNome(nome);
